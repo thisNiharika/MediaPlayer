@@ -1,0 +1,311 @@
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #140B00;
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+    left: 100px;
+    border-radius: 3px 0 0 3px;
+  }
+
+/* Position the "next button" to the right */
+.next {
+  right: 100px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: white;
+}
+
+/* Caption text */
+.text,.text1,.text2,.text3,.text4 {
+  padding: 8px 12px;
+  position: absolute;
+  width: 75%;
+  text-align: left;
+}
+
+/* Caption text */
+.text {
+    color: #836B61;
+    font-size: 50px;
+    bottom: 32%;
+    left: 23%
+}
+
+/* Caption text1 */
+.text1 {
+    color: #241C19;
+    font-size: 80px;
+    bottom: 20%;
+    left: 22%
+}
+   
+.text2 {
+    color: #241C19;
+    font-size: 30px;
+    bottom: 40%;
+    right: 25%;
+    text-align: right;
+}
+   
+.text3 {
+    color: #241C19;
+    font-size: 20px;
+    bottom: 15%;
+    right: 20%;
+    text-align: right;
+}
+
+.text4{
+    color: #241C19;
+    font-size: 30px;
+    bottom: 15%;
+    right: 20%;
+    text-align: right;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.doti {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  bottom: 40%;
+  right: 25%;
+  text-align: right;
+  border-radius: 50%;
+  display: inline-block;
+  background-color:#e0d6d1;
+  transition: background-color 0.6s ease;
+}
+
+.inner {
+  font-size: 13px;
+  font-color: #878787;
+  color: #836B61;
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.rotate {
+   -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+.fadediv{
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+	background-color: #EAE3E0;
+}
+ 
+
+
+/* styling the outer music container */
+.music-container {
+    background-color: #efefef;
+    box-shadow: inset -1px -1px 5px rgba(33,33,33, 0.5), inset 1px 1px 5px rgba(33,33,33,0.5); 
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+  }
+  
+  .img-container {
+    position: relative;
+    width: 110px;
+  }
+  
+  /* styling the image to look like a disc by placing a small circle in it*/
+  .img-container::after {
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, 50%);
+  }
+  
+  /* using animation to make the image rotate continiously when music is playing */
+  .img-container img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+  
+    animation-play-state: paused;
+  }
+  
+  /* making sure the image rotates only when the music is playing */
+  .music-container.play .img-container img {
+    animation-play-state: running;
+  }
+  
+  /* creating the animation keyframe and setting the image to rotate 360 degrees continiously */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  /* styling the navigation buttons */
+  .action-btn {
+    border: 0;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+  }
+  
+  .action-btn.action-btn-big {
+    font-size: 30px;
+    outline: none;
+  }
+  
+  .action-btn:focus {
+    outline: 0;
+  }
+  
+  /* styling the music-info div by placing it under the music container */
+  .music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+  }
+  
+  /* making the music info pop up when the music playing using the transform property*/
+  .music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  
+  .music-info h4 {
+    margin: 0;
+  }
+  
+  /* styling the song progress container */
+  .progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+  }
+  
+  /* styling the actual progress bar and making it flow along with the song*/
+  .progress {
+    background-color: #fe8daa;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  
+  #np{
+	      bottom: 8%;
+    margin-left: 10%;
+    position: absolute;
+  font-size: 2em;
+  }
